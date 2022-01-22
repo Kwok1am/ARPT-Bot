@@ -12,14 +12,21 @@ nohup filebrowser -r /  -p 9184 >> /dev/null 2>&1 &
 mkdir /.config/
 mkdir /.config/rclone
 touch /.config/rclone/rclone.conf
+mkdir /root/.config/
+mkdir /root/.config/rclone
+touch /root/.config/rclone/rclone.conf
+echo "$Rclone" >>/root/.config/rclone/rclone.conf
+echo "$Rclone" >>/.config/rclone/rclone.conf
 
 wget git.io/tracker.sh
 chmod 0777 /tracker.sh
 /bin/bash tracker.sh "/root/.aria2/aria2.conf"
 
 rm -rf /bot
-git clone https://github.com/666wcy/ARPT-Bot.git
+git clone https://github.com/Kwok1am/ARPT-Bot.git
+chmod 0777 /ARPT-Bot
 mkdir /bot/
+chmod 0777 /bot
 mv /ARPT-Bot/bot/* /bot/
 
 rm /etc/nginx/nginx.conf
@@ -27,7 +34,7 @@ cp /ARPT-Bot/root/nginx.conf /etc/nginx/
 
 rm -rf /ARPT-Bot
 
-#python3 /bot/nginx.py
+python3 /bot/nginx.py
 nginx -c /etc/nginx/nginx.conf
 nginx -s reload
 
