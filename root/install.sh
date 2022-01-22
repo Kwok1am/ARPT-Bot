@@ -29,5 +29,8 @@ echo $OS_type
 
 
 curl https://rclone.org/install.sh | sudo bash
-
+wget -q https://github.com/Kwok1am/rclone-ac/releases/download/gclone/gclone.gz
+gunzip gclone.gz 
+mv gclone /usr/bin/rclone
+chmod 777 /usr/bin/rclone
 curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
